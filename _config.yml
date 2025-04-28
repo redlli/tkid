@@ -1,0 +1,21 @@
+title: TKiD
+email: redlii@redlli.com
+description: >- # this means to ignore newlines until "baseurl:"
+  official page redlii.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://tkid.redlii.com/" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  redlli
+
+# SEO Settings
+seo:
+  title: "TKiD"
+  description: "Home page for ja apps and games and many more"
+  keywords: "TKiD, TKiD by redlii"
+  image: "/assets/images/cover.jpg"
+  icon: "/assets/img/icons/logo.png"
+
+  
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
