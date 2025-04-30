@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="icon" href="/assets/img/icons/logo.png" type="image/x-icon">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Support | TKiD</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Support" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Support us page" />
+<meta property="og:description" content="Support us page" />
+<link rel="canonical" href="http://localhost:4000/support" />
+<meta property="og:url" content="http://localhost:4000/support" />
+<meta property="og:site_name" content="TKiD" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Support" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Support us page","headline":"Support","url":"http://localhost:4000/support"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/random">Random</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <main class="content">
+        <style>
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#upiQR {
+    animation: rotate 2s linear infinite;
+}
+
+</style>
+
+<section id="upi">
+    <p style="font-size: 30px">"Support me by giving me your money"</p>
+    <img style="width: 350px;" id="upiQR" alt="UPiQR" />
+</section>
+
+<script>
+    // Define the folder path
+    const folderPath = "/assets/img/coolart/";
+
+    // Array of image filenames in the folder
+    const imageFiles = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"]; // Replace with actual filenames
+
+    // Select a random image
+    const randomImage = imageFiles[Math.floor(Math.random() * imageFiles.length)];
+
+    // Update the image source
+    document.getElementById("upiQR").src = folderPath + randomImage;
+</script>
+
+
+         
+    </main>
+    <footer>
+        <a class="linkhai" href="/support">Support Me</a>
+        <a class="linkhai" href="/readme">readme</a>
+        <a class="linkhai" href="/credits">credits</a>
+        <p style="font-size: 20px;">--- A Redlli Project ---</p>
+        <p style="font-size: 15px;">©2025</p>
+    </footer>
+
+    <script src="/assets/js/mode.js"></script>
+</body>
+</html>
+
