@@ -7,15 +7,6 @@ description: Page not found or broken URL
 keywords: JA, JA by redlii, JA 404 page, app, JA apps, JA games
 ---
 <style>
-footer {
-    background-color: #111;
-    color: white;
-    text-align: center;
-    padding: 2%;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
   .container {
     margin: 10px auto;
     max-width: 600px;
