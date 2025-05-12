@@ -13,8 +13,9 @@ seo:
   keywords: "TKiD, redlii"
   image: "/assets/images/cover.jpg"
   icon: "/assets/img/icons/logo.png"
-
-  
+collections:
+  products:
+    output: true 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
