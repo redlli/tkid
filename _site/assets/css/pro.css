@@ -1,0 +1,308 @@
+/* Define Theme Colors */
+:root {
+  --theme-pink: #ff8597;
+  --theme-accent-pink: #f20053;
+  --theme-black: black;
+  --theme-dark-grey: #111;
+  --theme-white: white;
+  --theme-light-grey: #ddd; /* For borders etc. */
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ff8597;
+    color: white;
+    margin: 0;
+    padding: 0;
+    /* Ensure padding at the top to prevent content from being hidden behind fixed header */
+    padding-top: 60px; /* Adjust this value based on your header's actual height */
+}
+
+header {
+    font-size: 24px;
+    background-color: black;
+    color: white;
+    padding: 1%;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0; /* Ensure it's fixed to the left edge as well */
+    z-index: 1000; /* Ensure header is on top of other content */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    height: 10%; /* Set a fixed height for easier padding-top adjustment on body */
+    display: flex; /* Use flexbox for potential logo/nav alignment */
+    align-items: center; /* Vertically center content in header */
+    justify-content: center; /* Center header content horizontally */
+}
+
+header nav ul li a:hover {
+    background-color: white;
+    color: #f20053;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Link Styling */
+.linkhai {
+    color: white;
+    text-decoration: none; /* Ensure links are not underlined by default */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Add transition for smoother hover */
+}
+
+.linkhai:hover {
+    color: #f20053;
+    font-size: 30px; /* This might cause layout shifts, consider a different hover effect */
+}
+
+/* Centering Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1% 25%; /* Adjust horizontal margins */
+    padding: 1%;
+    min-height: 80vh;
+    color: black;
+    box-sizing: border-box; /* Include padding in width calculation */
+    width: auto; /* Allow width to be determined by margins */
+    max-width: 1000px; /* Optional: Set a max-width for very wide screens */
+}
+
+/* Navigation */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0; /* Add padding for hover effect area */
+    transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease, border-radius 0.3s ease; /* Add transitions */
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 2%;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Ensure padding matches header height */
+    }
+
+    header {
+        font-size: 20px; /* Slightly smaller font on mobile */
+        padding: 1.5% 3%; /* Adjusted padding for smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+        flex-direction: column; /* Stack logo and nav vertically if needed */
+        justify-content: center;
+    }
+
+    /* Adjust header font size for very small screens if necessary */
+    @media (max-width: 480px) {
+        header {
+            font-size: 18px;
+        }
+    }
+
+
+    /* Adjust Linkhai hover font size for mobile */
+    .linkhai:hover {
+        font-size: 1.5em; /* Use relative unit for better scaling */
+        /* Avoid large font size changes on hover on mobile as it can be disruptive */
+    }
+
+
+    .content {
+        margin: 3% 5%; /* Increased top margin, reduced horizontal margins */
+        padding: 2% 3%; /* Adjusted padding */
+        min-height: 70vh; /* Slightly reduce min-height */
+    }
+
+    nav ul li {
+        display: block; /* Stack navigation items vertically */
+        margin: 10px 0; /* Add vertical margin */
+    }
+
+    nav ul li a {
+        padding: 8px 12px; /* Add padding for better touch targets */
+    }
+
+
+    footer {
+        padding: 3% 5%; /* Adjusted padding for smaller screens */
+    }
+}
+
+/* Basic Product Grid Styling (Kept similar to previous version, applying theme colors) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0; /* Remove padding here, use padding on .site-main */
+  max-width: 100%; /* Allow grid to take full width of its container (.site-main) */
+  margin: 0; /* Remove margin here, centering is handled by .site-main */
+  /* background-color: transparent; */ /* Already transparent */
+}
+
+.product-item {
+  border: 1px solid var(--theme-light-grey); /* Use a theme color variable for border */
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--theme-white); /* Use theme color variable */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-item img {
+  display: block;
+  width: 100%;
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.product-item .product-details {
+  padding: 10px 15px 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item h3 {
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: var(--theme-black); /* Use theme color variable */
+}
+
+.product-item .product-price {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--theme-accent-pink); /* Use accent color for price */
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-size: 0.9em;
+  color: #666; /* Keep grey or use a theme color variable */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.product-item .add-to-cart {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--theme-light-grey); /* Use theme color variable */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-item .add-to-cart select {
+  padding: 8px;
+  border: 1px solid var(--theme-light-grey); /* Use theme color variable */
+  border-radius: 4px;
+  font-size: 0.9em;
+  background-color: var(--theme-white); /* Often white background */
+  flex-grow: 1;
+  min-width: 100px;
+}
+
+.product-item .add-to-cart .add-to-cart-button {
+  flex-grow: 1;
+  padding: 10px 15px;
+  background-color: var(--theme-black); /* Black button background */
+  color: var(--theme-white); /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  min-width: 100px;
+}
+
+.product-item .add-to-cart .add-to-cart-button:hover {
+  background-color: var(--theme-dark-grey); /* Darker black on hover */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Adjust padding based on header height on mobile */
+    }
+
+    .site-header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 10px 15px;
+        height: auto; /* Allow height to adjust */
+    }
+
+    .site-nav ul {
+        flex-direction: column; /* Stack nav items */
+        gap: 5px; /* Smaller gap on mobile */
+    }
+
+    .site-nav ul li {
+        margin: 0; /* Remove inline block margin */
+    }
+
+    .site-nav ul li a {
+        padding: 8px 15px; /* Larger click area */
+        display: block; /* Make links block level */
+    }
+
+
+    .site-main {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .product-grid {
+        gap: 15px; /* Smaller gap on mobile */
+    }
+
+    .site-footer {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .footer-links a {
+        margin: 0 8px; /* Adjust footer link spacing */
+    }
+
+}
