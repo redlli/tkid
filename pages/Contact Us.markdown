@@ -1,6 +1,6 @@
 ---
 title: Contact Us
-permalink: /ContactUs
+permalink: /contactus
 layout: home
 icon: /assets/img/logo.png
 description: Contact Us 
