@@ -11,7 +11,7 @@ keywords: Redirecting, redlii
     // List of links to redirect randomly
     const links = [
         "https://redlii.com",
-        "https://tkid.redlii.com",
+        "https://ja.redlii.com",
         "https://blog.redlii.com/",
         "https://youtu.be/iE3AbWq-c7w?si=9HMU5Pl3NO7uZ-r8",
         "https://youtube.com/shorts/DK-t01wnix8?si=UJmMzYOCJNFjRzkp",
