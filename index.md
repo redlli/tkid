@@ -20,6 +20,7 @@ permalink: /
 <div class="link-button">
 <a class="linkhai" href="https://www.teepublic.com/user/tkid"><img width="500px" height="auto" src="https://assets.teepublic.com/assets/logos/tp-full-@2x-319ca2602fc9fdb9852cf714a32686fedd7a9c66ffdd2c3dacdf3aee2450de2c.png" alt="Cool Artwork by me"/></a>
 </div>
-
-
+<div class="link-button">
+<a class="linkhai" href="https://tkid.threadless.com/"><img width="500px" height="auto" src="https://cdn-media.threadless.com/images/magenta-logo.webp" alt="Cool Artwork by me"/></a>
+</div>
 
