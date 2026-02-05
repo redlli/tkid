@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2YT6NEZ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3N2YT6NEZ5');
+</script>
+
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="icon" href="/assets/img/icons/logo.png" type="image/x-icon">
+    <meta name="p:domain_verify" content="99dec68c42107e83add3c292ec7ac2d0"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Products | TKiD</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Products" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="official page TKiD." />
+<meta property="og:description" content="official page TKiD." />
+<link rel="canonical" href="http://localhost:4000/product" />
+<meta property="og:url" content="http://localhost:4000/product" />
+<meta property="og:site_name" content="TKiD" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-05T20:21:58+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Products" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-05T20:21:58+05:30","datePublished":"2026-02-05T20:21:58+05:30","description":"official page TKiD.","headline":"Products","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/product"},"url":"http://localhost:4000/product"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Product</a></li>
+                <li><a href="/random">Random</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <main class="content">
+        <style>
+  :root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+    --accent: #0071e3;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  /* Container & Card */
+  .product-grid {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+    background: var(--card-bg);
+    margin-bottom: 60px;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+
+  /* Slideshow Area */
+  .slideshow-container {
+    position: relative;
+    flex: 1;
+    max-width: 450px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f5f5f7;
+  }
+
+  .slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Content Area */
+  .product-info {
+    flex: 1;
+  }
+
+  .product-info h2 { 
+    margin: 0 0 15px 0; 
+    font-size: 2.2rem; 
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+  }
+
+  .description { 
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    color: var(--text-muted); 
+    margin-bottom: 35px; 
+  }
+  
+  .buy-label { 
+    font-weight: 600; 
+    margin-bottom: 15px; 
+    display: block; 
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .button-group { display: flex; gap: 15px; }
+
+  .btn {
+    background: var(--text-main);
+    color: white !important;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn:hover { 
+    background: #444;
+    transform: translateY(-2px);
+  }
+
+  /* Navigation UI */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    color: #000;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    z-index: 10;
+    user-select: none;
+    opacity: 0;
+  }
+
+  .slideshow-container:hover .prev,
+  .slideshow-container:hover .next { opacity: 1; }
+  
+  .next { right: 15px; }
+  .prev { left: 15px; }
+
+  /* Fade Animation */
+  .fade {
+    animation: fadeEffect 0.5s ease-in-out;
+  }
+
+  @keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+
+  /* Mobile Optimization */
+  @media (max-width: 900px) {
+    .product-card { 
+        flex-direction: column; 
+        padding: 20px;
+        gap: 30px;
+    }
+    .slideshow-container { max-width: 100%; width: 100%; }
+    .product-info h2 { font-size: 1.8rem; }
+    .prev, .next { opacity: 1; } /* Always show on mobile */
+  }
+</style>
+
+<div class="product-grid">
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-1 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="I Like Goth Girls" />
+        </div>
+      
+        <div class="mySlides-1 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="I Like Goth Girls" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 1, 'mySlides-1')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 1, 'mySlides-1')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>I Like Goth Girls</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-2 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="I Like Goth Girls" />
+        </div>
+      
+        <div class="mySlides-2 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="I Like Goth Girls" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 2, 'mySlides-2')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 2, 'mySlides-2')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>I Like Goth Girls</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-3 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="thirdimage" />
+        </div>
+      
+        <div class="mySlides-3 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="thirdimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 3, 'mySlides-3')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 3, 'mySlides-3')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>thirdimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-4 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="newimage" />
+        </div>
+      
+        <div class="mySlides-4 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="newimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 4, 'mySlides-4')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 4, 'mySlides-4')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>newimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-5 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="rawimage" />
+        </div>
+      
+        <div class="mySlides-5 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="rawimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 5, 'mySlides-5')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 5, 'mySlides-5')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>rawimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-6 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="fireimage" />
+        </div>
+      
+        <div class="mySlides-6 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="fireimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 6, 'mySlides-6')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 6, 'mySlides-6')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>fireimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-7 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="catimage" />
+        </div>
+      
+        <div class="mySlides-7 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="catimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 7, 'mySlides-7')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 7, 'mySlides-7')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>catimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-8 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="sogimage" />
+        </div>
+      
+        <div class="mySlides-8 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="sogimage" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 8, 'mySlides-8')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 8, 'mySlides-8')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>sogimage</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="product-card">
+    
+    <div class="slideshow-container">
+      
+      
+        <div class="mySlides-9 fade" style="display: block; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="banana" />
+        </div>
+      
+        <div class="mySlides-9 fade" style="display: none; height: 100%;">
+          <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" alt="banana" />
+        </div>
+      
+      
+      
+        <a class="prev" onclick="plusSlides(-1, 9, 'mySlides-9')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 9, 'mySlides-9')">&#10095;</a>
+      
+    </div>
+
+    <div class="product-info">
+      <h2>banana</h2>
+      <p class="description">white design Goth girl cool</p>
+      
+      <span class="buy-label">Available on</span>
+      <div class="button-group">
+        
+          <a href="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" class="btn" target="_blank">Teepublic</a>
+        
+        
+          <a href="https://tkid.threadless.com/designs/i-like-goth-girls" class="btn" target="_blank">Threadless</a>
+        
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<script>
+let slideIndexMap = {};
+
+function plusSlides(n, galleryID, className) {
+  if (slideIndexMap[galleryID] === undefined) {
+    slideIndexMap[galleryID] = 1;
+  }
+  showSlides(slideIndexMap[galleryID] += n, galleryID, className);
+}
+
+function showSlides(n, galleryID, className) {
+  let slides = document.getElementsByClassName(className);
+  if (slideIndexMap[galleryID] === undefined) {
+    slideIndexMap[galleryID] = 1;
+  }
+  
+  if (n > slides.length) { slideIndexMap[galleryID] = 1 }    
+  if (n < 1) { slideIndexMap[galleryID] = slides.length }
+  
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slides[slideIndexMap[galleryID] - 1].style.display = "block";  
+}
+</script>
+
+
+         
+    </main>
+    <footer>
+        <a class="linkhai" href="/support">Support Me</a>
+        <a class="linkhai" href="/readme">Readme</a>
+        <a class="linkhai" href="/credits">Credits</a>
+        <a class="linkhai" href="/contactus">Contact Us</a>
+        <p style="font-size: 20px;">--- A Redlli Project ---</p>
+        <p style="font-size: 15px;">©2025</p>
+    </footer>
+
+    <script src="/assets/js/mode.js"></script>
+</body>
+</html>
+
