@@ -10,5 +10,3 @@ If you want to make similar website or learn how to make it do check out<a class
 
  check out <a class="linkhai" href="https://jekyllrb.com/docs/home/">Jekyll Documentation</a>
 
-html icons used in this website are from <a class="linkhai" href="https://fontawesome.com/search">FontAwesome - Icons</a> feel free to check out.
-

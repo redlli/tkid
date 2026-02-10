@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2YT6NEZ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3N2YT6NEZ5');
+</script>
+
+    <meta charset="UTF-8">
+    <title>Design Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="icon" href="/assets/img/icons/logo.png" type="image/x-icon">
+    <meta name="p:domain_verify" content="99dec68c42107e83add3c292ec7ac2d0"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Design Gallery | TKiD</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Design Gallery" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="official page TKiD." />
+<meta property="og:description" content="official page TKiD." />
+<link rel="canonical" href="http://localhost:4000/show" />
+<meta property="og:url" content="http://localhost:4000/show" />
+<meta property="og:site_name" content="TKiD" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-10T17:04:01+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Design Gallery" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-10T17:04:01+05:30","datePublished":"2026-02-10T17:04:01+05:30","description":"official page TKiD.","headline":"Design Gallery","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/show"},"url":"http://localhost:4000/show"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Product</a></li>
+                <li><a href="/random">Random</a></li>
+                <li><a href="/about">About</a></li>
+                <li class="search-li">
+                    <div class="search-container">
+                        <input type="text" id="csv-search" placeholder="Search designs...">
+                        <div id="search-results" class="search-results-dropdown"></div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+    <main class="content">
+        <style>
+  :root {
+    --theme-bg: #ff8597;
+    --accent-hover: #f20053;
+    --text-dark: #000000;
+    --text-light: #ffffff;
+    --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { 
+    overflow-x: hidden;
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- Gallery Popup --- */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 133, 151, 0.95); 
+    display: none; 
+    z-index: 10000;
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+  }
+
+  .popup-overlay.active { display: flex; opacity: 1; }
+
+  .product-container {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    position: relative; 
+    gap: 0; 
+    align-items: stretch;
+    justify-content: center;
+    background: #ffffff;
+    border: 5px solid var(--text-dark);
+    box-shadow: 25px 25px 0px rgba(0,0,0,0.15);
+  }
+
+  .stage {
+    position: relative;
+    flex: 1.1;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border-right: 5px solid var(--text-dark);
+    overflow: hidden;
+  }
+
+  .stage img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+  }
+
+  .info-sidebar {
+    flex: 0.9;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: white;
+    justify-content: space-between; 
+  }
+
+  .info-sidebar h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .info-sidebar .description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    opacity: 0.8;
+  }
+
+  .buy-section {
+    border-top: 2px solid var(--text-dark);
+    padding-top: 30px;
+    margin-top: auto;
+  }
+
+  .buy-section label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+
+  .btn-group { display: flex; gap: 12px; }
+
+  .btn {
+    flex: 1;
+    text-align: center;
+    padding: 18px 24px;
+    background: var(--text-dark);
+    color: var(--text-light) !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .btn:hover { 
+    color: var(--accent-hover) !important; 
+    transform: translateY(-3px);
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--text-dark);
+    color: var(--text-light);
+    border: none;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .nav-btn:hover { background: var(--accent-hover); }
+  .prev { left: 0px; }
+  .next { right: 0px; }
+
+  .close-btn-inner {
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: var(--text-dark);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 20px;
+    z-index: 100;
+    transition: 0.2s;
+  }
+  
+  .close-btn-inner:hover { background: var(--accent-hover); }
+
+  @media (max-width: 1024px) {
+    .product-container { flex-direction: column; height: auto; border: 3px solid #000; margin-top: 40px;}
+    .stage { width: 100%; height: 40vh; border-right: none; border-bottom: 5px solid #000; }
+    .info-sidebar { padding: 30px; min-height: 400px; }
+    .close-btn-inner { top: -45px; right: 0px; } 
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
+
+<div id="imagePopup" class="popup-overlay">
+  <div class="product-container" onclick="event.stopPropagation()">
+    <button class="close-btn-inner" onclick="closePopup()">Close [x]</button>
+    <div class="stage" id="popupStage">
+      <button class="nav-btn prev" onclick="changeSlide(-1)">←</button>
+      <div id="imageMount" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></div>
+      <button class="nav-btn next" onclick="changeSlide(1)">→</button>
+    </div>
+    <div class="info-sidebar">
+      <h2 id="pTitle"></h2>
+      <p class="description" id="pDes"></p>
+      <div class="buy-section">
+        <label>Acquire via Platform</label>
+        <div id="pButtons" class="btn-group"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentIdx = 0;
+let currentImgs = [];
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Check URL for Search Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('title')) {
+        openGalleryPopup(
+            urlParams.get('imgs').split(','),
+            urlParams.get('title'),
+            urlParams.get('des'),
+            urlParams.get('tee'),
+            urlParams.get('thread')
+        );
+    }
+
+    // 2. Original functionality for on-page items
+    const items = document.querySelectorAll('.mashup-item');
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            openGalleryPopup(
+                item.getAttribute('data-imgs').split(','),
+                item.getAttribute('data-title'),
+                item.getAttribute('data-des'),
+                item.getAttribute('data-tee'),
+                item.getAttribute('data-thread')
+            );
+        });
+    });
+
+    const popup = document.getElementById('imagePopup');
+    popup.addEventListener('click', closePopup);
+});
+
+function openGalleryPopup(imgs, title, des, tee, thread) {
+    const popup = document.getElementById('imagePopup');
+    // Clean up URLs and remove empty spaces
+    currentImgs = imgs.map(i => i.trim()).filter(i => i !== "");
+    
+    document.getElementById('pTitle').innerText = title;
+    document.getElementById('pDes').innerText = des;
+    currentIdx = 0;
+
+    let btns = '';
+    // Check if links exist and aren't just empty/placeholder strings
+    if(tee && tee.length > 10) btns += `<a href="${tee}" target="_blank" class="btn">Teepublic</a>`;
+    if(thread && thread.length > 10) btns += `<a href="${thread}" target="_blank" class="btn">Threadless</a>`;
+    document.getElementById('pButtons').innerHTML = btns;
+
+    renderImage();
+    popup.style.display = 'flex';
+    setTimeout(() => popup.classList.add('active'), 10);
+    document.body.style.overflow = 'hidden';
+}
+
+function renderImage() {
+    const mount = document.getElementById('imageMount');
+    if(currentImgs.length > 0) {
+        mount.innerHTML = `<img src="${currentImgs[currentIdx]}" style="animation: fadeIn 0.4s ease;">`;
+    }
+    
+    // Toggle navigation buttons only if more than one image exists
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    if (prevBtn && nextBtn) {
+        const displayStyle = currentImgs.length > 1 ? 'flex' : 'none';
+        prevBtn.style.display = displayStyle;
+        nextBtn.style.display = displayStyle;
+    }
+}
+
+function changeSlide(n) {
+    if (currentImgs.length <= 1) return;
+    currentIdx = (currentIdx + n + currentImgs.length) % currentImgs.length;
+    renderImage();
+}
+
+function closePopup() {
+    const popup = document.getElementById('imagePopup');
+    popup.classList.remove('active');
+    setTimeout(() => { 
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // REDIRECT BACK TO HOME PAGE
+        window.location.href = "/";
+    }, 300);
+}
+</script>
+
+
+         
+    </main>
+    <footer>
+        <a class="linkhai" href="/support">Support Me</a>
+        <a class="linkhai" href="/readme">Readme</a>
+        <a class="linkhai" href="/credits">Credits</a>
+        <a class="linkhai" href="/contactus">Contact Us</a>
+        <p style="font-size: 20px;">--- A Redlli Project ---</p>
+        <p style="font-size: 15px;">©2025</p>
+    </footer>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('csv-search');
+    const resultsDropdown = document.getElementById('search-results');
+    let csvData = [];
+
+    // Fetch and parse the CSV
+    fetch('/assets/data/pdata.csv')
+        .then(response => response.text())
+        .then(text => {
+            const rows = text.split('\n').slice(1); // Skip header
+            csvData = rows.map(row => {
+                // Regex to handle commas inside quotes in CSV
+                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if (cols.length < 5) return null;
+                return {
+                    title: cols[0].replace(/"/g, '').trim(),
+                    imgs: cols[1].replace(/"/g, '').trim(),
+                    des: cols[2].replace(/"/g, '').trim(),
+                    tee: cols[3].replace(/"/g, '').trim(),
+                    thread: cols[4].replace(/"/g, '').trim()
+                };
+            }).filter(item => item !== null);
+        });
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        resultsDropdown.innerHTML = '';
+        
+        if (query.length < 2) {
+            resultsDropdown.style.display = 'none';
+            return;
+        }
+
+        const filtered = csvData.filter(item => item.title.toLowerCase().includes(query));
+
+        if (filtered.length > 0) {
+            filtered.forEach(item => {
+                const firstImg = item.imgs.split(',')[0].trim();
+                const div = document.createElement('div');
+                div.className = 'result-card';
+                div.innerHTML = `
+                    <img src="${firstImg}" alt="${item.title}">
+                    <div class="result-info">
+                        <span class="result-title">${item.title}</span>
+                    </div>
+                `;
+                div.onclick = () => {
+                    // Build the URL with encoded parameters
+                    const params = new URLSearchParams({
+                        title: item.title,
+                        imgs: item.imgs,
+                        des: item.des,
+                        tee: item.tee,
+                        thread: item.thread
+                    });
+                    window.open(`/show?${params.toString()}`, '_blank');
+                };
+                resultsDropdown.appendChild(div);
+            });
+            resultsDropdown.style.display = 'block';
+        } else {
+            resultsDropdown.style.display = 'none';
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target)) resultsDropdown.style.display = 'none';
+    });
+});
+</script>
+    <script src="/assets/js/mode.js"></script>
+</body>
+</html>
+

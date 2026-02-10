@@ -28,11 +28,11 @@
 <meta property="og:url" content="http://localhost:4000/product" />
 <meta property="og:site_name" content="TKiD" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-06T15:53:05+05:30" />
+<meta property="article:published_time" content="2026-02-10T17:04:01+05:30" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Design Gallery" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-06T15:53:05+05:30","datePublished":"2026-02-06T15:53:05+05:30","description":"official page TKiD.","headline":"Design Gallery","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/product"},"url":"http://localhost:4000/product"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-10T17:04:01+05:30","datePublished":"2026-02-10T17:04:01+05:30","description":"official page TKiD.","headline":"Design Gallery","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/product"},"url":"http://localhost:4000/product"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -60,7 +60,6 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body { 
-    cursor: crosshair;
     overflow-x: hidden;
     font-family: var(--font-main);
     color: var(--text-dark);
@@ -116,7 +115,7 @@
     width: 100%;
     max-width: 1300px;
     margin: auto;
-    position: relative; /* Anchor for the Close Button */
+    position: relative; 
     gap: 0; 
     align-items: stretch;
     justify-content: center;
@@ -152,7 +151,8 @@
     flex-direction: column;
     text-align: left;
     background: white;
-    justify-content: center;
+    /* Changed to space-between to push content to top/bottom */
+    justify-content: space-between; 
   }
 
   .info-sidebar h2 {
@@ -175,6 +175,7 @@
   .buy-section {
     border-top: 2px solid var(--text-dark);
     padding-top: 30px;
+    margin-top: auto; /* Ensures it stays at the bottom */
   }
 
   .buy-section label {
@@ -228,11 +229,11 @@
   .prev { left: 0px; }
   .next { right: 0px; }
 
-  /* CLOSE BUTTON - NOW INSIDE CONTAINER */
+  /* CLOSE BUTTON - UPDATED WITH 5PX MARGIN */
   .close-btn-inner {
     position: absolute;
-    top: -5px; /* Aligned with border */
-    right: -5px; /* Aligned with border */
+    top: 5px; /* Added 5px margin from top */
+    right: 5px; /* Added 5px margin from right */
     cursor: pointer;
     font-size: 12px;
     font-weight: 900;
@@ -252,8 +253,8 @@
   @media (max-width: 1024px) {
     .product-container { flex-direction: column; height: auto; border: 3px solid #000; margin-top: 40px;}
     .stage { width: 100%; height: 40vh; border-right: none; border-bottom: 5px solid #000; }
-    .info-sidebar { padding: 30px; }
-    .close-btn-inner { top: -45px; right: -3px; } /* Positioned above on mobile */
+    .info-sidebar { padding: 30px; min-height: 400px; }
+    .close-btn-inner { top: -45px; right: 0px; } 
   }
 </style>
 
@@ -262,7 +263,7 @@
     
       
       <div class="mashup-cell">
-        <div class="mashup-item" data-rotation="0" data-title="I Like Goth Girls" data-des="white design Goth girl cool" data-imgs="https://github.com/redlli/tkid/blob/main/assets/img/coolart/1.png?raw=true,  https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" data-tee="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" data-thread="https://tkid.threadless.com/designs/i-like-goth-girls">
+        <div class="mashup-item" data-rotation="0" data-title="I Like Goth Girls" data-des="yoooooooooo cooool and soe shit is going to be some awasome and i l to dance but qunestion is do you brooo. you dont dance do you so is it like this is somethind and sontndjfjdfjndkjfan odofnao ansaswhite design Goth girl cool" data-imgs="https://github.com/redlli/tkid/blob/main/assets/img/coolart/1.png?raw=true,  https://github.com/redlli/tkid/blob/main/assets/img/coolart/6.png?raw=true" data-tee="https://www.teepublic.com/t-shirt/86804237-penguin?store_id=2925911" data-thread="https://tkid.threadless.com/designs/i-like-goth-girls">
           <img src="https://github.com/redlli/tkid/blob/main/assets/img/coolart/1.png?raw=true" alt="I Like Goth Girls" />
         </div>
       </div>
