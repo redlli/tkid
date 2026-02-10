@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2YT6NEZ5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3N2YT6NEZ5');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2YT6NEZ5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3N2YT6NEZ5');
+    </script>
 
     <meta charset="UTF-8">
     <title>About</title>
@@ -43,9 +41,16 @@
                 <li><a href="/product">Product</a></li>
                 <li><a href="/random">Random</a></li>
                 <li><a href="/about">About</a></li>
+                <li class="search-li">
+                    <div class="search-container">
+                        <input type="text" id="csv-search" placeholder="Search designs...">
+                        <div id="search-results" class="search-results-dropdown"></div>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header> 
+
     <main class="content">
         <h1>About TKiD</h1>
 <div align="center">
@@ -55,8 +60,8 @@
 <p>We are passionate creators, crafting exceptional designs that speak for themselves. Though we are currently a small team, we are determined to make a lasting impression. In our quest to capture attention, we may experiment with trendy, eye-catching concepts that push boundaries. But rest assured, our commitment to quality and innovation remains unwavering. As we grow, we will continue refining our craft, bringing forth designs that are both striking and timeless.</p>
 
 
-         
     </main>
+
     <footer>
         <a class="linkhai" href="/support">Support Me</a>
         <a class="linkhai" href="/readme">Readme</a>
@@ -67,6 +72,94 @@
     </footer>
 
     <script src="/assets/js/mode.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('csv-search');
+        const resultsDropdown = document.getElementById('search-results');
+        let csvData = [];
+
+        // Fetch and parse the CSV
+        fetch('/assets/data/pdata.csv')
+            .then(response => response.text())
+            .then(text => {
+                const rows = text.split('\n').slice(1);
+                csvData = rows.map(row => {
+                    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    if (cols.length < 6) return null;
+                    return {
+                        title: cols[0].replace(/"/g, '').trim(),
+                        imgs: cols[1].replace(/"/g, '').trim(),
+                        des: cols[2].replace(/"/g, '').trim(),
+                        tee: cols[3].replace(/"/g, '').trim(),
+                        thread: cols[4].replace(/"/g, '').trim(),
+                        tags: cols[5].replace(/"/g, '').toLowerCase()
+                    };
+                }).filter(item => item !== null);
+            });
+
+        function debounce(func, delay) {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        const performSearch = debounce(function() {
+            const query = searchInput.value.toLowerCase().trim();
+            resultsDropdown.innerHTML = '';
+            
+            if (query.length < 1) {
+                resultsDropdown.style.display = 'none';
+                return;
+            }
+
+            resultsDropdown.style.display = 'block';
+            resultsDropdown.innerHTML = '<div class="search-loader"></div>';
+
+            const filtered = csvData.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.tags.includes(query)
+            );
+
+            setTimeout(() => {
+                resultsDropdown.innerHTML = '';
+                if (filtered.length > 0) {
+                    filtered.forEach(item => {
+                        const firstImg = item.imgs.split(',')[0].trim();
+                        const div = document.createElement('div');
+                        div.className = 'result-card';
+                        div.innerHTML = `
+                            <img src="${firstImg}" alt="${item.title}">
+                            <div class="result-info">
+                                <span class="result-title">${item.title}</span>
+                            </div>
+                        `;
+                        div.onclick = () => {
+                            const params = new URLSearchParams({
+                                title: item.title,
+                                imgs: item.imgs,
+                                des: item.des,
+                                tee: item.tee,
+                                thread: item.thread
+                            });
+                            window.open(`/show?${params.toString()}`, '_blank');
+                        };
+                        resultsDropdown.appendChild(div);
+                    });
+                } else {
+                    resultsDropdown.innerHTML = '<div style="padding:20px;text-align:center;color:black;font-weight:bold;">NO DESIGNS FOUND</div>';
+                }
+            }, 200); 
+        }, 300);
+
+        searchInput.addEventListener('input', performSearch);
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target)) resultsDropdown.style.display = 'none';
+        });
+    });
+    </script>
 </body>
 </html>
-
