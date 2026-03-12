@@ -6,18 +6,23 @@ permalink: /
 <style>
 .link-button {
     display: inline-block;
-    background-color: white;
+    background-color: none;
+    border: 4px solid black;
     padding: 12px 20px;
     margin: 10px;
   }
 </style>
-<h1>Check out on</h1>
+<h1>Check Out On</h1>
 
 <div class="link-button">
-<a class="linkhai" href="https://tkid.threadless.com/"><img width="500px" height="auto" src="https://i0.wp.com/blog.threadless.com/wp-content/uploads/2015/02/logo.png?fit=600%2C200&ssl=1" alt="Thredless Store"/></a>
+<a class="linkhai" href="https://tkid.threadless.com/"><img width="500px" height="auto" src="/assets/img/icons/threadless-logo.png" alt="Thredless Store"/></a>
 </div>
 
 <div class="link-button">
-<a class="linkhai" href="https://www.teepublic.com/user/tkid"><img width="500px" height="auto" src="https://assets.teepublic.com/assets/logos/tp-full-@2x-319ca2602fc9fdb9852cf714a32686fedd7a9c66ffdd2c3dacdf3aee2450de2c.png" alt="TeePublic Store"/></a>
+<a class="linkhai" href="https://www.teepublic.com/user/tkid"><img width="500px" height="auto" src="/assets/img/icons/teepublic-logo.svg" alt="TeePublic Store"/></a>
+</div>
+
+<div class="link-button">
+<a class="linkhai" href="https://tkid-shop.fourthwall.com"><img width="500px" height="auto" src="/assets/img/icons/fourthwall-logo.svg" alt="Forthwall Store"/></a>
 </div>
 

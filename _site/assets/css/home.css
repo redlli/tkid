@@ -169,7 +169,9 @@ footer {
     padding: 2%;
     width: 100%;
 }
-
+.social-links {
+    margin-bottom: 25px; /* Gives socials breathing room */
+}
 /* --- Mobile Optimization --- */
 @media (max-width: 768px) {
     body { padding-top: 140px; }

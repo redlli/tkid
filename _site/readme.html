@@ -113,15 +113,6 @@ This license applies to all artwork created by TKiD and shared on Instagram or t
 
     </main>
 
-    <footer>
-        <a class="linkhai" href="/support">Support Me</a>
-        <a class="linkhai" href="/readme">Readme</a>
-        <a class="linkhai" href="/credits">Credits</a>
-        <a class="linkhai" href="/contactus">Contact Us</a>
-        <p style="font-size: 20px;">--- A Redlli Project ---</p>
-        <p style="font-size: 15px;">©2025</p>
-    </footer>
-
     <script src="/assets/js/mode.js"></script>
 
     <script>
@@ -136,15 +127,21 @@ This license applies to all artwork created by TKiD and shared on Instagram or t
             .then(text => {
                 const rows = text.split('\n').slice(1);
                 csvData = rows.map(row => {
+                    // Regex handles commas inside quotes (like in your tags column)
                     const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    if (cols.length < 6) return null;
+                    
+                    // CSV Order: title(0), img(1), des(2), tee(3), thread(4), forth(5), tag(6)
+                    if (cols.length < 7) return null; 
+
                     return {
                         title: cols[0].replace(/"/g, '').trim(),
                         imgs: cols[1].replace(/"/g, '').trim(),
                         des: cols[2].replace(/"/g, '').trim(),
                         tee: cols[3].replace(/"/g, '').trim(),
                         thread: cols[4].replace(/"/g, '').trim(),
-                        tags: cols[5].replace(/"/g, '').toLowerCase()
+                        forth: cols[5].replace(/"/g, '').trim(), 
+                        //incase add new platform name: cols[x].replace(/"/g, '').trim()
+                        tags: cols[6].replace(/"/g, '').toLowerCase() // Tags moved to index 6
                     };
                 }).filter(item => item !== null);
             });
@@ -193,7 +190,9 @@ This license applies to all artwork created by TKiD and shared on Instagram or t
                                 imgs: item.imgs,
                                 des: item.des,
                                 tee: item.tee,
-                                thread: item.thread
+                                thread: item.thread,
+                                forth: item.forth 
+                                // name:item.name to add that new flatform redirect and then do cahnge in /show page
                             });
                             window.open(`/show?${params.toString()}`, '_blank');
                         };
@@ -213,4 +212,17 @@ This license applies to all artwork created by TKiD and shared on Instagram or t
     });
     </script>
 </body>
+<footer>
+        <div class="social-links">
+            <a class="linkhai"  href="https://www.youtube.com/@onlytkid" target="_blank" class="social-icon">YouTube</a>
+            <a class="linkhai"  href="https://www.instagram.com/onlytkid" target="_blank" class="social-icon">Instagram</a>
+        </div>
+        
+        <a class="linkhai" href="/support">Support Me</a>
+        <a class="linkhai" href="/readme">Readme</a>
+        <a class="linkhai" href="/credits">Credits</a>
+        <a class="linkhai" href="/contactus">Contact Us</a>
+        <p style="font-size: 20px;">--- A Redlli Project ---</p>
+        <p style="font-size: 15px;">©2025 – <script>document.write(new Date().getFullYear())</script></p>
+</footer>
 </html>

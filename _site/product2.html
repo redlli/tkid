@@ -26,11 +26,11 @@
 <meta property="og:url" content="http://localhost:4000/product2" />
 <meta property="og:site_name" content="TKiD" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-10T20:50:28+05:30" />
+<meta property="article:published_time" content="2026-03-12T23:06:44+05:30" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Products" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-10T20:50:28+05:30","datePublished":"2026-02-10T20:50:28+05:30","description":"official page TKiD.","headline":"Products","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/product2"},"url":"http://localhost:4000/product2"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-12T23:06:44+05:30","datePublished":"2026-03-12T23:06:44+05:30","description":"official page TKiD.","headline":"Products","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/product2"},"url":"http://localhost:4000/product2"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -228,7 +228,7 @@
 
     <div class="product-info">
       <h2>I Like Goth Girls</h2>
-      <p class="description">yoooooooooo cooool and soe shit is going to be some awasome and i l to dance but qunestion is do you brooo. you dont dance do you so is it like this is somethind and sontndjfjdfjndkjfan odofnao ansaswhite design Goth girl cool</p>
+      <p class="description">white design Goth girl cool</p>
       
       <span class="buy-label">Available on</span>
       <div class="button-group">
@@ -533,15 +533,6 @@ function showSlides(n, galleryID, className) {
 
     </main>
 
-    <footer>
-        <a class="linkhai" href="/support">Support Me</a>
-        <a class="linkhai" href="/readme">Readme</a>
-        <a class="linkhai" href="/credits">Credits</a>
-        <a class="linkhai" href="/contactus">Contact Us</a>
-        <p style="font-size: 20px;">--- A Redlli Project ---</p>
-        <p style="font-size: 15px;">©2025</p>
-    </footer>
-
     <script src="/assets/js/mode.js"></script>
 
     <script>
@@ -556,15 +547,21 @@ function showSlides(n, galleryID, className) {
             .then(text => {
                 const rows = text.split('\n').slice(1);
                 csvData = rows.map(row => {
+                    // Regex handles commas inside quotes (like in your tags column)
                     const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    if (cols.length < 6) return null;
+                    
+                    // CSV Order: title(0), img(1), des(2), tee(3), thread(4), forth(5), tag(6)
+                    if (cols.length < 7) return null; 
+
                     return {
                         title: cols[0].replace(/"/g, '').trim(),
                         imgs: cols[1].replace(/"/g, '').trim(),
                         des: cols[2].replace(/"/g, '').trim(),
                         tee: cols[3].replace(/"/g, '').trim(),
                         thread: cols[4].replace(/"/g, '').trim(),
-                        tags: cols[5].replace(/"/g, '').toLowerCase()
+                        forth: cols[5].replace(/"/g, '').trim(), 
+                        //incase add new platform name: cols[x].replace(/"/g, '').trim()
+                        tags: cols[6].replace(/"/g, '').toLowerCase() // Tags moved to index 6
                     };
                 }).filter(item => item !== null);
             });
@@ -613,7 +610,9 @@ function showSlides(n, galleryID, className) {
                                 imgs: item.imgs,
                                 des: item.des,
                                 tee: item.tee,
-                                thread: item.thread
+                                thread: item.thread,
+                                forth: item.forth 
+                                // name:item.name to add that new flatform redirect and then do cahnge in /show page
                             });
                             window.open(`/show?${params.toString()}`, '_blank');
                         };
@@ -633,4 +632,17 @@ function showSlides(n, galleryID, className) {
     });
     </script>
 </body>
+<footer>
+        <div class="social-links">
+            <a class="linkhai"  href="https://www.youtube.com/@onlytkid" target="_blank" class="social-icon">YouTube</a>
+            <a class="linkhai"  href="https://www.instagram.com/onlytkid" target="_blank" class="social-icon">Instagram</a>
+        </div>
+        
+        <a class="linkhai" href="/support">Support Me</a>
+        <a class="linkhai" href="/readme">Readme</a>
+        <a class="linkhai" href="/credits">Credits</a>
+        <a class="linkhai" href="/contactus">Contact Us</a>
+        <p style="font-size: 20px;">--- A Redlli Project ---</p>
+        <p style="font-size: 15px;">©2025 – <script>document.write(new Date().getFullYear())</script></p>
+</footer>
 </html>
