@@ -1,58 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2YT6NEZ5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3N2YT6NEZ5');
-    </script>
+---
+layout: home
+title: Design Gallery
+permalink: /show
+---
 
-    <meta charset="UTF-8">
-    <title>Design Gallery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/home.css">
-    <link rel="icon" href="/assets/img/icons/logo.png" type="image/x-icon">
-    <meta name="p:domain_verify" content="99dec68c42107e83add3c292ec7ac2d0"/>
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Design Gallery | TKiD</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Design Gallery" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="official page TKiD." />
-<meta property="og:description" content="official page TKiD." />
-<link rel="canonical" href="http://localhost:4000/show" />
-<meta property="og:url" content="http://localhost:4000/show" />
-<meta property="og:site_name" content="TKiD" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Design Gallery" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"official page TKiD.","headline":"Design Gallery","url":"http://localhost:4000/show"}</script>
-<!-- End Jekyll SEO tag -->
-
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/product">Product</a></li>
-                <li><a href="/random">Random</a></li>
-                <li><a href="/about">About</a></li>
-                <li class="search-li">
-                    <div class="search-container">
-                        <input type="text" id="csv-search" placeholder="Search designs...">
-                        <div id="search-results" class="search-results-dropdown"></div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header> 
-
-    <main class="content">
-        <style>
+<style>
   :root {
     --theme-bg: #ff8597;
     --accent-hover: #f20053;
@@ -232,6 +184,7 @@
   }
 </style>
 
+
 <div id="imagePopup" class="popup-overlay">
   <div class="product-container" onclick="event.stopPropagation()">
     <button class="close-btn-inner" onclick="closePopup()">Close [x]</button>
@@ -338,119 +291,3 @@ function closePopup() {
 }
 </script>
 
-
-    </main>
-
-    <script src="/assets/js/mode.js"></script>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchInput = document.getElementById('csv-search');
-        const resultsDropdown = document.getElementById('search-results');
-        let csvData = [];
-
-        // Fetch and parse the CSV
-        fetch('/assets/data/pdata.csv')
-            .then(response => response.text())
-            .then(text => {
-                const rows = text.split('\n').slice(1);
-                csvData = rows.map(row => {
-                    // Regex handles commas inside quotes (like in your tags column)
-                    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    
-                    // CSV Order: title(0), img(1), des(2), tee(3), thread(4), forth(5), tag(6)
-                    if (cols.length < 7) return null; 
-
-                    return {
-                        title: cols[0].replace(/"/g, '').trim(),
-                        imgs: cols[1].replace(/"/g, '').trim(),
-                        des: cols[2].replace(/"/g, '').trim(),
-                        tee: cols[3].replace(/"/g, '').trim(),
-                        thread: cols[4].replace(/"/g, '').trim(),
-                        forth: cols[5].replace(/"/g, '').trim(), 
-                        //incase add new platform name: cols[x].replace(/"/g, '').trim()
-                        tags: cols[6].replace(/"/g, '').toLowerCase() // Tags moved to index 6
-                    };
-                }).filter(item => item !== null);
-            });
-
-        function debounce(func, delay) {
-            let timeout;
-            return (...args) => {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), delay);
-            };
-        }
-
-        const performSearch = debounce(function() {
-            const query = searchInput.value.toLowerCase().trim();
-            resultsDropdown.innerHTML = '';
-            
-            if (query.length < 1) {
-                resultsDropdown.style.display = 'none';
-                return;
-            }
-
-            resultsDropdown.style.display = 'block';
-            resultsDropdown.innerHTML = '<div class="search-loader"></div>';
-
-            const filtered = csvData.filter(item => 
-                item.title.toLowerCase().includes(query) || 
-                item.tags.includes(query)
-            );
-
-            setTimeout(() => {
-                resultsDropdown.innerHTML = '';
-                if (filtered.length > 0) {
-                    filtered.forEach(item => {
-                        const firstImg = item.imgs.split(',')[0].trim();
-                        const div = document.createElement('div');
-                        div.className = 'result-card';
-                        div.innerHTML = `
-                            <img src="${firstImg}" alt="${item.title}">
-                            <div class="result-info">
-                                <span class="result-title">${item.title}</span>
-                            </div>
-                        `;
-                        div.onclick = () => {
-                            const params = new URLSearchParams({
-                                title: item.title,
-                                imgs: item.imgs,
-                                des: item.des,
-                                tee: item.tee,
-                                thread: item.thread,
-                                forth: item.forth 
-                                // name:item.name to add that new flatform redirect and then do cahnge in /show page
-                            });
-                            window.open(`/show?${params.toString()}`, '_blank');
-                        };
-                        resultsDropdown.appendChild(div);
-                    });
-                } else {
-                    resultsDropdown.innerHTML = '<div style="padding:20px;text-align:center;color:black;font-weight:bold;">NO DESIGNS FOUND</div>';
-                }
-            }, 200); 
-        }, 300);
-
-        searchInput.addEventListener('input', performSearch);
-
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target)) resultsDropdown.style.display = 'none';
-        });
-    });
-    </script>
-</body>
-<footer>
-        <div class="social-links">
-            <a class="linkhai"  href="https://www.youtube.com/@onlytkid" target="_blank" class="social-icon">YouTube</a>
-            <a class="linkhai"  href="https://www.instagram.com/onlytkid" target="_blank" class="social-icon">Instagram</a>
-        </div>
-        
-        <a class="linkhai" href="/support">Support Me</a>
-        <a class="linkhai" href="/readme">Readme</a>
-        <a class="linkhai" href="/credits">Credits</a>
-        <a class="linkhai" href="/contactus">Contact Us</a>
-        <p style="font-size: 20px;">--- A Redlli Project ---</p>
-        <p style="font-size: 15px;">©2025 – <script>document.write(new Date().getFullYear())</script></p>
-</footer>
-</html>
