@@ -12,6 +12,7 @@ Welcome! This license is designed to help small creators grow while protecting t
 
 ### 1. Ownership & Copyright
 * **Artist Rights:** TKiD (the "Artist") retains **100% ownership and copyright** of all original artwork and character designs.
+* **Scope of License:** This license applies **ONLY** to solo artwork created 100% by TKiD. **Collaborations with other artists and Logos are EXCLUDED** from these terms unless otherwise stated.
 * **No Ownership Transfer:** Using or modifying the art does not make you the owner. You cannot claim authorship or present the work as your own.
 * **Modifications:** You may edit or remix the art for personal projects or physical merch, but TKiD still owns the underlying character design.
 * **Personal Use:** Fans are free to use TKiD art for **non-commercial** purposes (wallpapers, avatars, private printing) without notification.
@@ -46,3 +47,4 @@ Note:Email(tkid.redlii.com) is not active right now so DM me Instagram.
 <div align="center">
   <img width="100%" height="auto" src="https://img.playbook.com/dxDCUPNT58BNVTckrbqu9jfE_d7aLM5PSrduMz70s38/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzBhM2Y2ODJm/LWZiOWQtNDYyMC05/ZWMwLTQ0MWU3OTM2/NjkyZg" alt="Cool Artwork by me"/>
 </div>
+
