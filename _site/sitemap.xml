@@ -16,6 +16,9 @@
 <loc>http://localhost:4000/credits</loc>
 </url>
 <url>
+<loc>http://localhost:4000/download</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
 </url>
 <url>

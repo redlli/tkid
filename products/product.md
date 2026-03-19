@@ -208,6 +208,10 @@ permalink: /product
   }
 </style>
 
+<marquee direction="right" scrollamount="7">
+  To Download Art <a class="linkhai"  href="https://tkid.redlii.com/download">click Here</a>.
+</marquee>
+
 <div class="gallery-container">
   <div class="mashup-grid">
     {% for entry in site.data.pdata %}
@@ -248,6 +252,9 @@ permalink: /product
   </div>
 </div>
 
+<marquee direction="right" scrollamount="7">
+  To Download Art <a class="linkhai"  href="https://tkid.redlii.com/download">click Here</a>.
+</marquee>
 <script>
 let currentIdx = 0;
 let currentImgs = [];
